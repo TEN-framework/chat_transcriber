@@ -47,6 +47,6 @@ jobs:
           tman install
 
       - name: Publish release to TEN cloud store
-        if: ${{ startsWith(github.ref, 'refs/tags/') && matrix.build_type == 'release' }}
+        if: startsWith(github.ref, 'refs/tags/')
         run: |
           tman --verbose --user-token ${{ secrets.TEN_CLOUD_STORE }} publish

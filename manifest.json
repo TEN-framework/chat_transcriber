@@ -9,6 +9,16 @@
       "version": "0.2"
     }
   ],
+  "package": {
+    "include": [
+      "manifest.json",
+      "property.json",
+      "**.go",
+      "pb/**",
+      "go.mod",
+      "go.sum"
+    ]
+  },
   "api": {
     "property": {},
     "data_in": [

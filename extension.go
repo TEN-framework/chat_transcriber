@@ -66,10 +66,9 @@ func (p *chatTranscriberExtension) OnData(
 	}
 
 	// Get the stream id from data.
-	streamId, err := data.GetPropertyUint32(textDataStreamIdField)
-	if err != nil {
-		slog.Warn(fmt.Sprintf("OnData GetProperty %s error: %v", textDataStreamIdField, err), logTag)
-		return
+	var streamId uint32
+	if id, err := data.GetPropertyUint32(textDataStreamIdField); err == nil {
+		streamId = id
 	}
 
 	// Get the 'end_of_segment' flag from data which indicates whether a line break is needed.
